@@ -1521,15 +1521,6 @@ static NSURL *_sharedTrashURL;
     return isTTLCache;
 }
 
-- (void)setTtlCache:(BOOL)ttlCache
-{
-    [self.operationQueue scheduleOperation:^{
-        [self lock];
-            self->_ttlCache = ttlCache;
-        [self unlock];
-    } withPriority:PINOperationQueuePriorityHigh];
-}
-
 #if TARGET_OS_IPHONE
 - (NSDataWritingOptions)writingProtectionOption
 {
